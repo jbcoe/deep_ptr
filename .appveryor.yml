@@ -1,0 +1,16 @@
+image:
+  - Visual Studio 2017
+  - Visual Studio 2019
+
+clone_folder: c:\projects\deep_ptr
+
+before_build:
+  - cd c:\projects\deep_ptr
+
+build_script:
+  - mkdir build && cd build
+  - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+
+script:
+  - cmake --build .
+  - ctest --output-on-failure
