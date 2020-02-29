@@ -19,19 +19,19 @@ class deep_ptr {
 
   deep_ptr(deep_ptr &&) noexcept = default;
 
-  deep_ptr &operator=(const deep_ptr &) noexcept = default;
+  deep_ptr& operator=(const deep_ptr &) noexcept = default;
 
-  deep_ptr &operator=(deep_ptr &&) noexcept = default;
+  deep_ptr& operator=(deep_ptr &&) noexcept = default;
 
   ~deep_ptr() noexcept = default;
 
-  T *operator->() noexcept { return p_; }
+  T* operator->() noexcept { return p_; }
 
-  const T *operator->() const noexcept { return p_; }
+  const T* operator->() const noexcept { return p_; }
 
-  T &operator->() { return *p_; }
+  T& operator*() noexcept { return *p_; }
 
-  const T &operator->() const { return *p_; }
+  const T& operator*() const noexcept { return *p_; }
 };
 
 }  // namespace jbcoe

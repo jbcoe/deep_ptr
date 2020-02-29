@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+
+check_required_components(deep_ptr)
+
+if(NOT TARGET deep_ptr::deep_ptr)
+    list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
+    include(${CMAKE_CURRENT_LIST_DIR}/deep_ptr-target.cmake)
+endif()
