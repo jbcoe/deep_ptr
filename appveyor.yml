@@ -6,6 +6,10 @@ configuration:
   - Debug
   - Release
 
+platform:
+  - x86
+  - x64
+
 clone_folder: c:\projects\deep_ptr
 
 before_build:
