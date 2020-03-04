@@ -2,6 +2,14 @@ image:
   - Visual Studio 2017
   - Visual Studio 2019
 
+configuration:
+  - Debug
+  - Release
+
+platform:
+  - x86
+  - x64
+
 clone_folder: c:\projects\deep_ptr
 
 before_build:
@@ -9,8 +17,6 @@ before_build:
 
 build_script:
   - mkdir build && cd build
-  - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE
-
-script:
-  - cmake --build .
-  - ctest --output-on-failure
+  - cmake ..
+  - cmake --build . --config %CONFIGURATION%
+  - ctest --output-on-failure -C %CONFIGURATION%
