@@ -17,6 +17,6 @@ before_build:
 
 build_script:
   - mkdir build && cd build
-  - cmake .. -DCMAKE_BUILD_TYPE=%CONFIGURATION%
-  - cmake --build .
+  - cmake ..
+  - cmake --build . --config %CONFIGURATION%
   - ctest --output-on-failure -C %CONFIGURATION%
